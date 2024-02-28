@@ -11,20 +11,74 @@
 
 </head>
 
-<body>
-    <header>
-        <h1 class="text-6xl">Hunting Phone</h1>
+<body class="mx-3">
+    <header class="lg:mx-28">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class=" menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a>Item 1</a></li>
+                        <li>
+                            <a>Parent</a>
+                            <ul class="p-2">
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Item 3</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl lg:text-3xl font-bold ">Hot Gadgets</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="hidden menu menu-horizontal px-1">
+                    <li><a>Item 1</a></li>
+                    <li>
+                        <details>
+                            <summary>Parent</summary>
+                            <ul class="p-2">
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a>Item 3</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <a class="btn text-white font-medium bg-sky-500">Button</a>
+            </div>
+        </div>
     </header>
-    <main class="container mx-auto mt-8">
+    <main class="lg:mx-28 lg:mt-8">
+
         <!-- search button section -->
-        <section class="bf-gray-100 p-4 m-4">
-            <input id="search-feild" type="text" placeholder="search here"
-                class="input input-bordered w-full max-w-xs" />
-            <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+        <section class="bf-gray-100 p-4 m-4 flex flex-col justify-center items-center gap-2 lg:gap-10">
+            <h1 class=" text-2xl lg:text-6xl text-center font-bold">Search your phone</h1>
+            <div class="flex bg-gray-100 p-3 rounded-md lg:w-3/5 justify-center">
+                <input id="search-feild" type="text" placeholder="search here" class="input input-bordered lg:w-3/5" />
+                <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+            </div>
 
             <!-- <input id="search-feild2" type="text" placeholder="search here"
                 class="input input-bordered w-full max-w-xs" />
             <button onclick="handleSearch2()" class="btn btn-accent">Search</button> -->
+        </section>
+
+        <!-- not availavil Data section  -->
+
+        <section id="not-show-container" class="hidden text-center text-2xl lg:text-5xl font-semibold">
+            <p>Not Found Any Data.
+                Please Search Again
+            </p>
         </section>
 
         <section>
@@ -33,7 +87,7 @@
                 <span class="loading loading-bars loading-lg"></span>
             </div>
             <!-- search result div  -->
-            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             </div>
 
             <!-- show all btn -->
@@ -41,15 +95,15 @@
                 <button class="btn btn-accent">Show All</button>
             </div>
         </section>
-        
+
         <!-- show details modal  -->
         <section>
             <!-- Open the modal using ID.showModal() method -->
             <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 id="show-Details-Phone-Name" class="font-bold text-3xl"></h3>
+                    <h3 id="show-Details-Phone-Name" class="font-bold lg:text-3xl"></h3>
 
-                    <div id="show-Details-container" class="text-2xl space-y-1">
+                    <div id="show-Details-container" class="lg:text-2xl space-y-1">
                     </div>
                     <div class="modal-action">
                         <form method="dialog">

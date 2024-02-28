@@ -2,9 +2,15 @@ const loadPhone = async (searchFeildText='iphone',isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchFeildText}`)
     const data = await res.json()
     const phones = data.data
-    // console.log(phones)
+    console.log(phones.length)
+    const notShowContainer = document.getElementById('not-show-container');
+    if(phones.length < 1){
+        notShowContainer.classList.remove('hidden')
+    }
+    else{
+        notShowContainer.classList.add('hidden')
+    }
     displayPhones(phones,isShowAll)
-
 }
 
 

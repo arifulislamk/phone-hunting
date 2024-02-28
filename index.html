@@ -16,21 +16,36 @@
         <h1 class="text-6xl">Hunting Phone</h1>
     </header>
     <main class="container mx-auto mt-8">
+        <!-- search button section -->
         <section class="bf-gray-100 p-4 m-4">
             <input id="search-feild" type="text" placeholder="search..." class="input input-bordered w-full max-w-xs" />
             <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+
+            <input id="search-feild2" type="text" placeholder="search here"
+                class="input input-bordered w-full max-w-xs" />
+            <button onclick="handleSearch2()" class="btn btn-accent">Search</button>
         </section>
+
         <section>
+            <!-- loading spinner  -->
+            <div id="loading-spiner" class="hidden text-center text-blue-700 my-40">
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
+            <!-- search result div  -->
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             </div>
+
+            <!-- show all btn -->
+            <div id="show-all-btn" class="hidden">
+                <button class="btn btn-accent">Show All</button>
+            </div>
+
         </section>
-
     </main>
-
     <footer>
 
     </footer>
-    <script src="js/phone.js"></script>r
+    <script src="js/phone.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-const loadPhone = async (searchFeildText,isShowAll) => {
+const loadPhone = async (searchFeildText='iphone',isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchFeildText}`)
     const data = await res.json()
     const phones = data.data
@@ -48,7 +48,29 @@ const handleShowDetails = async(id) => {
     // console.log('id is clicked',id);
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     const data = await res.json()
-    console.log(data)
+    const phone = data.data
+    showPhoneDetails(phone)
+}
+
+// showPhoneDetails modal handle
+const showPhoneDetails = (phone) => {
+    console.log(phone)
+    show_details_modal.showModal()
+    const showDetailsPhoneName = document.getElementById('show-Details-Phone-Name');
+    showDetailsPhoneName.innerText = phone.name ;
+    const showDetailsContainer = document.getElementById('show-Details-container');
+    showDetailsContainer.innerHTML = `
+    <img src="${phone.image}" />
+    <p><span class="font-medium">Storage:</span> ${phone?.mainFeatures?.storage}</p>
+    <p><span class="font-medium">Display-Size:</span> ${phone?.mainFeatures?.displaySize}</p>
+    <p><span class="font-medium">ChipSet:</span> ${phone?.mainFeatures?.chipSet}</p>
+    <p><span class="font-medium">Memory:</span> ${phone?.mainFeatures?.memory}</p>
+    <p><span class="font-medium">slug:</span> ${phone?.slug}</p>
+    <p><span class="font-medium">Release-Date:</span> ${phone?.releaseDate}</p>
+    <p><span class="font-medium">Brand:</span> ${phone?.brand}</p>
+    <p><span class="font-medium">GPS:</span>${phone?.others?.GPS || 'NO GPS'}</p>
+    <p><span class="font-medium">GPS:</span>${phone.others?.GPS ? phone.others.GPS : 'NO GPS'}</p>
+    `
 }
 
 // handle search button 
@@ -83,3 +105,5 @@ const showAllButton = () =>{
     const showbtncontainer = document.getElementById('show-all-btn');
     handleSearch(true) ;
 }
+loadPhone()
+
